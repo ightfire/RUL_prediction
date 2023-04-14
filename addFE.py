@@ -1,0 +1,20 @@
+import numpy as np
+import pandas as pd
+
+df1 = pd.read_csv('', header=None, sep=" ")
+df2 = pd.read_csv('', header=None, sep=" ")
+print(df1.shape)
+df1 = np.array(df1)
+df2 = np.array(df2)
+pro = df1[:, :1].reshape(-1, 1)
+fe = df1[:, -1].reshape(-1, 1)
+fe2 = df2[:, -1].reshape(-1, 1)
+rul = df1[:, -2].reshape(-1, 1)
+print(pro.shape)
+print(rul.shape)
+df = np.hstack([pro, fe])
+df = np.hstack([df, fe2])
+df = np.hstack([df, rul])
+df= pd.DataFrame(df)
+print(df)
+df.to_csv('', header=None, index=None, sep=" ")
